@@ -46,6 +46,6 @@ def CreateFile ():
 def ShowStock():
     csv_file=glob.glob(os.path.join(GetCurrentDK(),'*.txt'))
     df2=pd.concat((pd.read_csv(f) for f in csv_file),ignore_index=True)
-    print(df2['Count'].sum())
+    print("Piece of Wood: {}".format(df2['Count'].sum()))
 
 ShowStock()
