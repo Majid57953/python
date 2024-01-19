@@ -48,12 +48,13 @@ def CreateFile ():
     #     file.write('\n{},{}'.format(i,cc))
     # file.close()
     df.to_csv(folder+'/'+GetCurrentDKT()+'.txt',index=None)
+CreateFile()
 print(os.getcwd())
 csv_file=glob.glob(os.path.join(GetCurrentDK(),'*.txt'))
 df2=pd.concat((pd.read_csv(f) for f in csv_file),ignore_index=True)
-print(df2)
+print(df2['Count'].sum())
 # print(GetCurrentDK())
-#CreateFile()
+
 # df2=pd.read_csv('/{}/*.txt'.format(GetCurrentDK()))
 # print(df2)
 
