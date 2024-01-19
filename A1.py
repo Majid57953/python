@@ -1,5 +1,6 @@
 import random
 import pandas as pd
+import os
 from datetime import datetime
 class EmployeeClass:
     def __init__(self,name,surname,age) :
@@ -16,7 +17,7 @@ EmployeeDict={
     ['Hunt','McDowel']
     }
 for i in EmployeeDict["Name"]:
-    cc=random.randint(1,10)
+    cc=random.randint(1,2)
     #print('Today {} created {} phones'.format(i,cc))
     itemCount.append(cc)
 dataDict={
@@ -27,18 +28,25 @@ dataDict={
 }
 df=pd.DataFrame(dataDict)
 
-#Gets the current datekey with seconds
+#Gets the current datekey
 def GetCurrentDK(): 
+    return datetime.now().strftime('%Y%m%d')
+#Gets the current datekey with seconds
+def GetCurrentDKT(): 
     return datetime.now().strftime('%Y%m%d%H%M%S')
+
 #Opens the file or creates a file
 def CreateFile (): 
+    folder=str(GetCurrentDK())
+    if not os.path.exists(folder):
+        os.makedirs(folder)
     # file=open('{}.txt'.format(GetCurrentDK()),'w') 
     # file.write('Name,ItemCount')
     # for i in EmployeeDict:
     #     cc=random.randint(1,10)
     #     file.write('\n{},{}'.format(i,cc))
     # file.close()
-    df.to_csv(GetCurrentDK()+'.txt',index=None)
+    df.to_csv(folder+'/'+GetCurrentDKT()+'.txt',index=None)
 # print(GetCurrentDK())
 CreateFile()
 
