@@ -41,17 +41,11 @@ def CreateFile ():
     folder=str(GetCurrentDK())
     if not os.path.exists(folder):
         os.makedirs(folder)
-    # file=open('{}.txt'.format(GetCurrentDK()),'w') 
-    # file.write('Name,ItemCount')
-    # for i in EmployeeDict:
-    #     cc=random.randint(1,10)
-    #     file.write('\n{},{}'.format(i,cc))
-    # file.close()
     df.to_csv(folder+'/'+GetCurrentDKT()+'.txt',index=None)
-CreateFile()
-print(os.getcwd())
-csv_file=glob.glob(os.path.join(GetCurrentDK(),'*.txt'))
-df2=pd.concat((pd.read_csv(f) for f in csv_file),ignore_index=True)
-print(df2['Count'].sum())
 
+def ShowStock():
+    csv_file=glob.glob(os.path.join(GetCurrentDK(),'*.txt'))
+    df2=pd.concat((pd.read_csv(f) for f in csv_file),ignore_index=True)
+    print(df2['Count'].sum())
 
+ShowStock()
