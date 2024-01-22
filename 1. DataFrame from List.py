@@ -43,5 +43,14 @@ def modifySalaryColumn(employees: pd.DataFrame) -> pd.DataFrame:
     employees['Id']=employees['Id'].apply(lambda x:x*2)
     return employees
 
-print(modifySalaryColumn(df2))
+def renameColumns(students: pd.DataFrame) -> pd.DataFrame:
+    students.columns=['IdM','NameM']
+    return students
+
+def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
+    #return students.astype({'Id':float})
+    students['Id']=students['Id'].astype(float)
+    return students
+
+print(changeDatatype(df2))
 
