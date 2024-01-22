@@ -10,6 +10,8 @@ class EmployeeClass:
         self.age=age  
 #List of Employee
 itemCount=[]
+dataDict={}
+itemTypes=['Wood','Iron']
 EmployeeDict={
     'Id':[1,2],
     'Name':
@@ -21,14 +23,17 @@ for i in EmployeeDict["Name"]:
     cc=random.randint(1,2)
     #print('Today {} created {} phones'.format(i,cc))
     itemCount.append(cc)
-dataDict={
+for i in itemTypes:
+    dataDict2={
     'Id':EmployeeDict['Id'],
     'Name':EmployeeDict['Name'],
     'Surname':EmployeeDict['Surname'],
-    'Count':itemCount
-}
-df=pd.DataFrame(dataDict)
+    'Count':itemCount,
+    'ItemType':i}
+    df3=dataDict
 
+df=pd.DataFrame(dataDict)
+print(df)
 #Gets the current datekey
 def GetCurrentDK(): 
     return datetime.now().strftime('%Y%m%d')
