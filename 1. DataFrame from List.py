@@ -52,5 +52,10 @@ def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:
     students['Id']=students['Id'].astype(float)
     return students
 
-print(changeDatatype(df2))
+def fillMissingValues(students:pd.DataFrame)->pd.DataFrame:
+    students['Name'].fillna(0,inplace=True)
+    return students
+    #return students.fillna({'Id':0})
+
+print(fillMissingValues(df2))
 
