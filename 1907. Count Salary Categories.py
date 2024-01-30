@@ -8,6 +8,7 @@ def account_rating(accounts:pd.DataFrame)->pd.DataFrame:
         accounts[(accounts['income'] >= 20000) & (accounts['income'] <= 50000)].shape[0],
         accounts[accounts['income'] > 50000].shape[0]]
         })
+        salaries.drop_duplicates()
         return salaries
 print(df.shape)
 # category=['Low Salary','Average Salary','High Salary']
