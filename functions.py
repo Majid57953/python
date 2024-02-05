@@ -60,10 +60,39 @@ def lengthOfLastWord(s: str) -> int:
     return len(arr[-1])
 
 def longestCommonPrefix(strs: list[str]) -> str:
+    result=''
+    for i in range(len(strs[0])):
+        for word in strs:
+            print(strs[0][i])
+            if i==len(word) or strs[0][i]!=word[i]:
+                return result
+        result+=word[i]
+        #print(result)   
+    
 
-    for i in strs:
 
-print(lengthOfLastWord('XV fg'))
+def longest_common_prefix(strings):
+    if not strings:
+        return ""  # Empty input, return an empty string
+
+    # Sort the strings to find the common prefix between the first and last string
+    strings.sort()
+    first_string, last_string = strings[0], strings[-1]
+
+    # Compare characters until a mismatch is found
+    common_prefix = []
+    for i in range(min(len(first_string), len(last_string))):
+        if first_string[i] == last_string[i]:
+            common_prefix.append(first_string[i])
+        else:
+            break
+
+    return "".join(common_prefix)
+
+# Example usage:
+input_strings = ["geeksforgeeks", "geeks", "geek", "geezer"]
+
+longestCommonPrefix(input_strings)
      
         
 
